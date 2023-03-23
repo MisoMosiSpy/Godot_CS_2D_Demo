@@ -80,7 +80,6 @@ public partial class Player : Area2D
 	{
 		Hide();
 		EmitSignal(nameof(Hit));
-		
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
 	}
 	
