@@ -26,6 +26,8 @@ public partial class Main : Node
 		GetNode<Timer>("MobTimer").Stop();
 		GetNode<Timer>("ScoreTimer").Stop();
 		GetNode<HUD>("HUD").ShowGameOver();
+		GetNode<AudioStreamPlayer>("Music").Stop();
+		GetNode<AudioStreamPlayer>("DeathSound").Play();
 	}
 	
 	public void NewGame()
@@ -43,6 +45,9 @@ public partial class Main : Node
 		hud.ShowMessage("Get Ready!");
 		
 		GetTree().CallGroup("mobs", "queue_free");
+		
+		GetNode<AudioStreamPlayer>("Music").Play();
+		
 	}
 	
 	private void _on_mob_timer_timeout()
